@@ -21,6 +21,8 @@ public class ClassExamples {
 
         out.println("The methods are:" + methods);
 
+        out.println("The enclosing class is: " + aClass.getEnclosingClass().getName());
+
     }
 
 
