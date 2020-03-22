@@ -15,13 +15,14 @@ public class OverloadingExamples {
     }
 
     // Multiple overloading methods examples:
-    // Primitive:
+    // The rules applied to determine which method to run are as follows:
+    // For primitive types:
     // 1. Exact match
     // 2. Larger primitive
-    // 3. Autoboxing
+    // 3. Autoboxing (Note: Once you enter this case, you will go through the reference types rules below)
     // 4. Varargs
     //
-    // Reference Type:
+    // For reference types:
     // 1. Exact match
     // 2. Super type
     // 3. Varargs
