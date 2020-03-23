@@ -35,8 +35,13 @@ public class EnumerationExamples {
    public static void main(String[] args) {
       printValuesAndOrdinals();
       constructorsFieldsAndMethods();
+      createdOnce();
    }
 
+   private static void createdOnce() {
+      OnlyOne firstCall = OnlyOne.ONLY_ONE; // First and only call to the consturt
+      OnlyOne secondCall = OnlyOne.ONLY_ONE; // Won't call the constructor again
+   }
 
    private static void constructorsFieldsAndMethods() {
       Season.SUMMER.printValues();
