@@ -2,10 +2,35 @@ package java8.enumeration;
 
 
 enum Season {
-   FALL("Medium"),
-   WINTER("Low"),
-   SPRING("Medium"),
-   SUMMER("High");
+   FALL("Medium"){
+      @Override
+      public void printHours() {
+         System.out.println("9am - 5pm");
+      }
+   },
+   WINTER("Low") {
+      @Override
+      public void printHours() {
+         System.out.println("9am - 3pm");
+      }
+   },
+   SPRING("Medium") {
+      @Override
+      public void printHours() {
+         System.out.println("9am - 5pm");
+      }
+   },
+   SUMMER("High") {
+      @Override
+      public void printHours() {
+         System.out.println("9am - 7pm");
+      }
+
+      @Override
+      public void printPrices() {
+         System.out.println("Nineteen dollars.");
+      }
+   };
 
    private String expectedVisitors;
 
@@ -15,6 +40,12 @@ enum Season {
 
    public void printValues() {
       System.out.println("The expected number of visitors in " + this + " is " + this.expectedVisitors);
+   }
+
+   public abstract void printHours();
+
+   public void printPrices() {
+      System.out.println("Fourteen dollars.");
    }
 }
 
@@ -36,6 +67,7 @@ public class EnumerationExamples {
       constructorsFieldsAndMethods();
       createdOnce();
       switchCase();
+      useOverriddenMethods();
    }
 
    private static void constructorsFieldsAndMethods() {
@@ -54,6 +86,7 @@ public class EnumerationExamples {
    }
 
    private static void switchCase() {
+
       Season summer = Season.SUMMER;
 
       switch (summer) {
@@ -71,4 +104,10 @@ public class EnumerationExamples {
       }
    }
 
+   private static void useOverriddenMethods() {
+      Season.WINTER.printHours();
+      Season.WINTER.printPrices();
+      Season.SUMMER.printHours();
+      Season.SUMMER.printPrices();
+   }
 }
