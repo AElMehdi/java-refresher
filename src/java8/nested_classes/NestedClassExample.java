@@ -7,7 +7,7 @@ class NestedClassExample {
 
    static class NestedClass {
 
-      void aMethod() {
+      void accessFields() {
          NestedClassExample nestedClassExample = new NestedClassExample();
 
          // Can access private fields from enclosing class
@@ -16,9 +16,22 @@ class NestedClassExample {
       }
    }
 
+   class InnerClass {
+      private String innerClassField = "Inner field Class";
+      void accessFields() {
+         System.out.println(staticPrivateValue);
+         System.out.println(privateValue);
+      }
+
+   }
 
    public static void main(String[] args) {
       NestedClass nestedClass = new NestedClass();
-      nestedClass.aMethod();
+      nestedClass.accessFields();
+
+      NestedClassExample nestedClassExample = new NestedClassExample();
+      // Access through the instance of the enclosing class
+      InnerClass innerClass = nestedClassExample.new InnerClass();
+      innerClass.accessFields();
    }
 }
