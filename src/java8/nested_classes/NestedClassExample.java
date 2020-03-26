@@ -31,8 +31,22 @@ class NestedClassExample {
             System.out.println("First level enclosing field:" + privateValue);
          }
       }
-
    }
+
+
+   void localClass() {
+      class LocalClass {
+         void printFieldsFromEnclosingClass() {
+            String effectivelyFinalVar = "effectively final";
+            System.out.println("Local class method" + staticPrivateValue);
+            //System.out.println("Local class method" + privateValue);
+            System.out.println("Local class method" + effectivelyFinalVar);
+         }
+      }
+      new LocalClass().printFieldsFromEnclosingClass();
+   }
+
+
 
    public static void main(String[] args) {
       NestedClass nestedClass = new NestedClass();
@@ -46,5 +60,7 @@ class NestedClassExample {
       // The Inner.DeepInnerClass is necessary Java can't know where to look when it's too deep
       InnerClass.DeepInnerClass deepInnerClass = innerClass.new DeepInnerClass();
       deepInnerClass.accessFields();
+
+      nestedClassExample.localClass();
    }
 }
