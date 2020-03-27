@@ -35,11 +35,12 @@ class NestedClassExample {
 
 
    void localClass() {
+      String effectivelyFinalVar = "effectively final";
       class LocalClass {
          void printFieldsFromEnclosingClass() {
-            String effectivelyFinalVar = "effectively final";
             System.out.println("Local class method" + staticPrivateValue);
-            //System.out.println("Local class method" + privateValue);
+            System.out.println("Local class method" + privateValue);
+            // Can access local variable if they are final or effectively final
             System.out.println("Local class method" + effectivelyFinalVar);
          }
       }
