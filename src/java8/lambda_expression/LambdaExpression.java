@@ -29,13 +29,19 @@ public class LambdaExpression {
       Consumer<String> oneParamLongSyntax = (String e) -> {
          out.println("One Param full syntax");
       };
+      oneParamLongSyntax.accept("input");
+
       Consumer oneParamShortSyntax = e -> out.println("Parentheses are optional if one param");
+      oneParamShortSyntax.accept("input");
+
+      Supplier<String> noParam = () -> "Parentheses are mandatory when no param";
+      noParam.get();
+
+      BiConsumer<String, Long> twoParams = (a, b) -> {
+         out.println("Two params => Parentheses are mandatory");
+         out.println("Two params => If you choose to put the type you have to put it for all params");
+      };
+
+      twoParams.accept("input",1L);
    }
-
-   Supplier<String> noParam = () -> "Parentheses are mandatory when no param";
-
-    BiConsumer<String, Long> twoParams = (a, b) -> {
-       out.println("Two params => Parentheses are mandatory");
-       out.println("Two params => If you choose to put the type you have to put it for all params");
-    };
 }
