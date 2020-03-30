@@ -25,6 +25,17 @@ public class LambdaExpression {
       int operate(int a, int b);
    }
 
+   // Params -> Body
+
+   // Prams:
+   // Parentheses are mandatory when:
+   // Zero param
+   // More than one param
+   // Types are optionals, except when you have multiple params and you add it to one of them
+
+   // Body:
+   // One liner => Curly braces are mandatory, when added you have to end the line with a semicolon
+   // Bloc code => Curly braces are mandatory, and so are the semicolon
    private static void validSyntax() {
       Consumer<String> oneParamLongSyntax = (String e) -> {
          out.println("One Param full syntax");
