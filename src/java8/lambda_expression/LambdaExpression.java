@@ -50,6 +50,9 @@ public class LambdaExpression {
       };
       oneParamLongSyntax.accept("input");
 
+      Consumer<String> oneParaType = (String e) -> out.println("One Param full syntax");
+      oneParamLongSyntax.accept("input");
+
       Consumer oneParamShortSyntax = e -> out.println("Parentheses are optional if one param");
       oneParamShortSyntax.accept("input");
 
