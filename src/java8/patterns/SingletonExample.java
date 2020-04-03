@@ -8,7 +8,13 @@ public class SingletonExample {
 
    }
 
-   public static SingletonExample getInstance() {
+   private static SingletonExample lazyInstantiation() {
+      if (instance == null) {
+         instance = new SingletonExample();
+      }
+      return instance;
+   }
+
       if (instance == null) {
          instance = new SingletonExample();
       }
@@ -16,8 +22,8 @@ public class SingletonExample {
    }
 
    public static void main(String[] args) {
-      SingletonExample instanceOne = getInstance();
-      SingletonExample instanceTwo = getInstance();
+      SingletonExample instanceOne = lazyInstantiation();
+      SingletonExample instanceTwo = lazyInstantiation();
 
       if (instanceOne.equals(instanceTwo)) {
          System.out.println("It's a singleton.");
