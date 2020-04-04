@@ -1,25 +1,25 @@
 package java8.patterns.singleton;
 
-public class LazySingleton {
+public class SynchronizedSingleton {
 
-   private static LazySingleton instance;
+   private static SynchronizedSingleton instance;
 
 
-   private LazySingleton() {
+   private SynchronizedSingleton() {
 
    }
 
-   private static LazySingleton getInstance() {
+   private synchronized static SynchronizedSingleton getInstance() {
       if (instance == null) {
-         instance = new LazySingleton();
+         instance = new SynchronizedSingleton();
       }
       return instance;
    }
 
 
    public static void main(String[] args) {
-      LazySingleton instanceOne = getInstance();
-      LazySingleton instanceTwo = getInstance();
+      SynchronizedSingleton instanceOne = getInstance();
+      SynchronizedSingleton instanceTwo = getInstance();
 
       if (instanceOne.equals(instanceTwo)) {
          System.out.println("One instance is created.");
