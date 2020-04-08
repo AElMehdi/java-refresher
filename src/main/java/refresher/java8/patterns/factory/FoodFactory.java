@@ -10,7 +10,7 @@ public class FoodFactory {
             return new Pellets(50);
       }
 
-      throw new UnsupportedOperationException("Unspported animal: " + animalName);
+      throw new UnsupportedOperationException("Unsupported animal: " + animalName);
    }
 
    public static void main(String[] args) {
