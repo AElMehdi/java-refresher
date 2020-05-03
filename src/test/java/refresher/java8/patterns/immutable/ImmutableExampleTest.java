@@ -15,4 +15,11 @@ class ImmutableExampleTest {
 
       assertEquals("Contacts is required!", exception.getMessage());
    }
+
+   @Test
+   void ascii_to_char() {
+      String ascii = "065";
+
+      System.out.println((char)(Integer.parseInt(ascii)));
+   }
 }
